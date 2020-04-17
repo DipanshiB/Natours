@@ -1,0 +1,75 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* Reset the whole project */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* For seting fonts globally throughout the whole project, do in body since font properties are usually inherited. */
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7; /* makes the line height 1.7 times the default */
+    color: #777;
+    padding: 30px; /* padding is not getting inherited - rather its simply being applied around teh entire body */
+}
+
+.header {
+    height: 95vh; /* at every point the height of the element will be 95% of the viewport height */
+    background-image: linear-gradient(to right bottom , rgba(126, 213, 111, 0.781), rgba(40, 180, 133, 0.781)) , url(../img/hero.jpg);
+    /* for gradients, always use the background img property, because we want the green background over the img, need to specify it on top */
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    /* to give the special shape to the header, use clip-path property that clips teh part of the image. For that we need to specify certain coordinates to the image. */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* specify points in clockwise direction, of the part of the image you want to keep */
+    /* tool : clippy - gives you the css coordinates for a lot of different shapes that you may want to use */
+    /* change to 75vh so that remains 75% regardless of the height of the page */
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px; /* starts counting with reference to the position of the parent elem which shoul dhave position as relative */
+    left: 40px;
+}
+
+.logo {
+    height: 35px; /* width will be automatically set by the browser */
+}
+
+.text-box {
+    position: absolute;
+    top: 40%; /* simply doing this doesn't work because it starts with the border of the box starting at 50% */
+    left: 50%;
+    transform: translate(-50%, -50%); /* shifts it be=y half of the elem's ht to the top and half of teh elem's width to the left */
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+    /* to display as upar neeche - make them block level elems so they take whole width */
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700; /* need to top up to 700 only because that is what has been loaded */
+    letter-spacing: 17.4px; /* by hit and trial in the inspect elem */
+}
